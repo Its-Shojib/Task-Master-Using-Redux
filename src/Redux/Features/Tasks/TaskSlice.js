@@ -9,18 +9,25 @@ export const tasksSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state, { payload }) => {
-            state.tasks.push(payload);
+            if (state.tasks.length === 0) {
+                state.tasks.push({ id: 1, status: "pending", ...payload });
+            } else {
+                // let last = state.tasks.at(-1); //find the last task in the list at(-1)
+                // state.tasks.push({ id: last.id + 1,...payload });
+                state.tasks.push({ id: state.tasks.length + 1, status: "pending", ...payload });
+            }
         },
-        // deleteTask: (state, action) => {
-        //     state = state.filter(task => task.id!== action.payload);
-        // },
-        // updateStatus: (state, action) => {
-        //     state.forEach(task => {
-        //         if (task.id === action.payload.id) {
-        //             task.status = action.payload.status;
-        //         }
-        //     });
-        // }
+        deleteTask: (state, { payload }) => {
+            state.tasks = state.tasks.filter((item) => item.id !== payload);
+        },
+        updateStatus: (state, { payload }) => {
+            state?.tasks?.forEach(task => {
+                if (task.id === payload.id) {
+                    task.status = payload.status;
+                }
+            });
+
+        }
     }
 });
 
