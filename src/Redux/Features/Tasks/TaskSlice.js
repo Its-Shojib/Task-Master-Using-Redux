@@ -17,9 +17,11 @@ export const tasksSlice = createSlice({
                 state.tasks.push({ id: state.tasks.length + 1, status: "pending", ...payload });
             }
         },
+
         deleteTask: (state, { payload }) => {
             state.tasks = state.tasks.filter((item) => item.id !== payload);
         },
+
         updateStatus: (state, { payload }) => {
             state?.tasks?.forEach(task => {
                 if (task.id === payload.id) {
