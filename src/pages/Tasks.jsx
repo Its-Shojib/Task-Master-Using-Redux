@@ -5,7 +5,6 @@ import { useState } from 'react';
 import AddTaskModal from '../components/tasks/AddTaskModal';
 import { useSelector } from 'react-redux';
 
-
 const Tasks = () => {
   let [isOpen, setIsOpen] = useState(false);
   let { tasks } = useSelector((state) => state.taskSlice);
