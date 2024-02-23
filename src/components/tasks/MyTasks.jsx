@@ -19,7 +19,6 @@ const MyTasks = () => {
 
   }, [dispatch, userName, tasks]);
 
-
   // const item = {
   //   id: 1,
   //   status: 'pending',
