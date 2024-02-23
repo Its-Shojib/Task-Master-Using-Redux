@@ -14,7 +14,6 @@ const Tasks = () => {
   let runningTasks = tasks.filter((task) => task.status === 'running');
   let doneTasks = tasks.filter((task) => task.status === 'done');
 
-
   return (
     <div className="h-screen grid grid-cols-12">
       <div className="col-span-9 px-10 pt-10">
